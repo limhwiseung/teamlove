@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM LOVE STUDIO</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#000;color:#fff;overflow-x:hidden;}
+
+/* NAV */
+nav{
+ position:fixed;top:0;width:100%;
+ background:rgba(0,0,0,0.7);
+ padding:15px 30px;
+ display:flex;justify-content:space-between;
+ z-index:1000;
+}
+nav h1{color:#ff2e63;}
+
+/* HEADER */
+header{
+ height:100vh;
+ display:flex;justify-content:center;align-items:center;
+ background:linear-gradient(to bottom,#000,transparent),
+ url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba') center/cover;
+}
+header h1{
+ font-size:60px;
+ text-shadow:0 0 20px #ff2e63;
+ animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+ from{ text-shadow:0 0 10px #ff2e63;}
+ to{ text-shadow:0 0 30px #ff2e63;}
+}
+
+/* SECTION */
+section{padding:100px 20px;text-align:center;}
+
+/* TEAM */
+.card{
+ display:inline-block;
+ margin:15px;
+ padding:20px;
+ background:#111;
+ border-radius:10px;
+ border:1px solid #ff2e63;
+}
+
+/* 🎬 CINEMA SECTION */
+.cinema-section{
+ background:radial-gradient(circle at center,#111 0%,#000 100%);
+}
+
+/* SCREEN */
+.screen{
+ position:relative;
+ width:80%;
+ max-width:900px;
+ height:450px;
+ margin:50px auto;
+ border-radius:20px;
+ overflow:hidden;
+ background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+ box-shadow:0 0 80px rgba(255,255,255,0.1);
+ transform:perspective(800px) rotateX(5deg);
+}
+
+/* RAIN */
+.rain{
+ position:absolute;width:100%;height:100%;
+ pointer-events:none;
+}
+.drop{
+ position:absolute;
+ bottom:100%;
+ width:2px;height:18px;
+ background:linear-gradient(transparent,#aeefff);
+ animation:fall linear infinite;
+}
+@keyframes fall{
+ to{transform:translateY(110%);}
+}
+
+/* SCREEN CONTENT */
+.screen-content{
+ position:absolute;inset:0;
+ display:flex;flex-direction:column;
+ justify-content:center;align-items:center;
+ text-shadow:0 0 20px black;
+}
+.screen-content h2{
+ font-size:40px;color:#ffb6c1;
+}
+
+/* SEATS */
+.seats{margin-top:40px;}
+.row{margin:10px 0;}
+.seat{
+ display:inline-block;
+ width:25px;height:25px;
+ margin:5px;
+ background:#222;
+ border-radius:5px;
+ box-shadow:0 5px 0 #111;
+ transition:0.2s;
+}
+.seat:hover{
+ background:#ff2e63;
+ transform:scale(1.2);
+}
+
+/* FOOTER */
+footer{
+ padding:20px;
+ color:gray;
+ text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <h1>TEAM LOVE</h1>
+</nav>
+
+<header>
+ <h1>🎬 TEAM LOVE STUDIO</h1>
+</header>
+
+<section>
+ <h1>Team</h1>
+ <div class="card">임휘승 (팀장)</div>
+ <div class="card">송시우 (부팀장)</div>
+ <div class="card">안종문 / 최에이든</div>
+</section>
+
+<section class="cinema-section">
+ <h1>Now Showing</h1>
+
+ <div class="screen">
+  <div class="rain"></div>
+
+  <div class="screen-content">
+   <h2>소나기 - 청순한 사랑</h2>
+   <p>TEAM LOVE의 첫 작품<br>소나기처럼 짧고 깊게 남는 첫사랑 이야기</p>
+  </div>
+ </div>
+
+ <div class="seats">
+  <div class="row">
+   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+  </div>
+  <div class="row">
+   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ © 2026 TEAM LOVE STUDIO
+</footer>
+
+<script>
+const rain = document.querySelector('.rain');
+for(let i=0;i<120;i++){
+ const drop=document.createElement('div');
+ drop.classList.add('drop');
+ drop.style.left=Math.random()*100+'%';
+ drop.style.animationDuration=(0.5+Math.random())+'s';
+ rain.appendChild(drop);
+}
+</script>
+
+</body>
+</html>
