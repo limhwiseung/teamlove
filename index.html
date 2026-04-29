@@ -6,175 +6,739 @@
 <title>TEAM LOVE STUDIO</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{background:#000;color:#fff;overflow-x:hidden;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* 🎬 INTRO */
+.intro{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    animation:introFade 4s forwards;
+}
+
+.intro-logo{
+    font-size:80px;
+    font-weight:bold;
+    color:#ff2e63;
+    letter-spacing:10px;
+
+    transform:scaleY(0);
+
+    animation:logoAnim 2.5s forwards;
+
+    text-shadow:
+        0 0 10px #ff2e63,
+        0 0 30px #ff2e63,
+        0 0 60px #ff2e63;
+}
+
+@keyframes logoAnim{
+    0%{
+        transform:scaleY(0);
+        opacity:0;
+    }
+
+    40%{
+        transform:scaleY(1.2);
+        opacity:1;
+    }
+
+    60%{
+        transform:scaleY(1);
+    }
+
+    100%{
+        transform:scaleY(1);
+        opacity:1;
+    }
+}
+
+@keyframes introFade{
+    0%,80%{
+        opacity:1;
+        visibility:visible;
+    }
+
+    100%{
+        opacity:0;
+        visibility:hidden;
+    }
+}
 
 /* NAV */
 nav{
- position:fixed;top:0;width:100%;
- background:rgba(0,0,0,0.7);
- padding:15px 30px;
- display:flex;justify-content:space-between;
- z-index:1000;
+    position:fixed;
+    width:100%;
+    top:0;
+
+    background:
+    rgba(0,0,0,0.7);
+
+    backdrop-filter:blur(10px);
+
+    padding:15px 30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:1000;
 }
-nav h1{color:#ff2e63;}
+
+nav h1{
+    color:#ff2e63;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#08d9d6;
+}
 
 /* HEADER */
 header{
- height:100vh;
- display:flex;justify-content:center;align-items:center;
- background:linear-gradient(to bottom,#000,transparent),
- url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba') center/cover;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(to bottom,#000,transparent),
+    url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba') center/cover;
 }
+
 header h1{
- font-size:60px;
- text-shadow:0 0 20px #ff2e63;
- animation:glow 2s infinite alternate;
+    font-size:75px;
+
+    text-shadow:
+    0 0 20px #ff2e63;
+
+    animation:glow 2s infinite alternate;
 }
+
 @keyframes glow{
- from{ text-shadow:0 0 10px #ff2e63;}
- to{ text-shadow:0 0 30px #ff2e63;}
+
+    from{
+        text-shadow:0 0 10px #ff2e63;
+    }
+
+    to{
+        text-shadow:0 0 40px #ff2e63;
+    }
 }
 
 /* SECTION */
-section{padding:100px 20px;text-align:center;}
+section{
+    padding:120px 20px;
+    text-align:center;
+}
+
+/* ABOUT */
+.about-box{
+    max-width:700px;
+
+    margin:auto;
+
+    background:#111;
+
+    padding:30px;
+
+    border-left:5px solid #08d9d6;
+
+    border-radius:15px;
+
+    line-height:1.8;
+}
 
 /* TEAM */
 .card{
- display:inline-block;
- margin:15px;
- padding:20px;
- background:#111;
- border-radius:10px;
- border:1px solid #ff2e63;
+    display:inline-block;
+
+    width:220px;
+
+    margin:15px;
+
+    padding:25px;
+
+    background:#111;
+
+    border:
+    1px solid #ff2e63;
+
+    border-radius:15px;
+
+    transition:0.4s;
 }
 
-/* 🎬 CINEMA SECTION */
+.card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.05);
+
+    box-shadow:
+    0 0 20px #ff2e63;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#ff2e63;
+}
+
+/* 🎬 CINEMA */
 .cinema-section{
- background:radial-gradient(circle at center,#111 0%,#000 100%);
+
+    background:
+    radial-gradient(circle at center,#111 0%,#000 100%);
 }
 
 /* SCREEN */
 .screen{
- position:relative;
- width:80%;
- max-width:900px;
- height:450px;
- margin:50px auto;
- border-radius:20px;
- overflow:hidden;
- background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
- box-shadow:0 0 80px rgba(255,255,255,0.1);
- transform:perspective(800px) rotateX(5deg);
+
+    position:relative;
+
+    width:80%;
+    max-width:950px;
+
+    height:500px;
+
+    margin:50px auto;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+
+    box-shadow:
+    0 0 80px rgba(255,255,255,0.08);
+
+    transform:
+    perspective(900px)
+    rotateX(5deg);
+
+    transition:0.5s;
 }
 
-/* RAIN */
+.screen:hover{
+
+    transform:
+    perspective(900px)
+    rotateX(0deg)
+    scale(1.02);
+}
+
+/* 🌧️ RAIN */
 .rain{
- position:absolute;width:100%;height:100%;
- pointer-events:none;
+    position:absolute;
+    width:100%;
+    height:100%;
+    pointer-events:none;
 }
+
 .drop{
- position:absolute;
- bottom:100%;
- width:2px;height:18px;
- background:linear-gradient(transparent,#aeefff);
- animation:fall linear infinite;
+
+    position:absolute;
+
+    bottom:100%;
+
+    width:2px;
+    height:18px;
+
+    background:
+    linear-gradient(
+        transparent,
+        #aeefff
+    );
+
+    animation:fall linear infinite;
+
+    opacity:0.7;
 }
+
 @keyframes fall{
- to{transform:translateY(110%);}
+
+    to{
+        transform:translateY(110%);
+    }
 }
 
 /* SCREEN CONTENT */
 .screen-content{
- position:absolute;inset:0;
- display:flex;flex-direction:column;
- justify-content:center;align-items:center;
- text-shadow:0 0 20px black;
-}
-.screen-content h2{
- font-size:40px;color:#ffb6c1;
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-shadow:
+    0 0 20px black;
+
+    animation:fadeUp 2s ease;
 }
 
-/* SEATS */
-.seats{margin-top:40px;}
-.row{margin:10px 0;}
-.seat{
- display:inline-block;
- width:25px;height:25px;
- margin:5px;
- background:#222;
- border-radius:5px;
- box-shadow:0 5px 0 #111;
- transition:0.2s;
+.screen-content h2{
+    font-size:50px;
+    color:#ffb6c1;
 }
+
+.screen-content p{
+    margin-top:20px;
+    font-size:20px;
+    line-height:1.7;
+}
+
+/* 등장 */
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* 🎟️ SEATS */
+.seats{
+    margin-top:40px;
+}
+
+.row{
+    margin:10px 0;
+}
+
+.seat{
+
+    display:inline-block;
+
+    width:28px;
+    height:28px;
+
+    margin:5px;
+
+    background:#222;
+
+    border-radius:6px;
+
+    box-shadow:
+    0 5px 0 #111;
+
+    transition:0.2s;
+}
+
 .seat:hover{
- background:#ff2e63;
- transform:scale(1.2);
+    background:#ff2e63;
+    transform:scale(1.2);
+}
+
+/* 🍿🎟️ EXTRAS */
+.extras-section{
+    background:#050505;
+}
+
+.extras-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    flex-wrap:wrap;
+    margin-top:50px;
+}
+
+/* 🍿 POPCORN */
+.popcorn-container{
+    position:relative;
+    width:220px;
+    height:260px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.popcorn-piece{
+    position:absolute;
+
+    width:55px;
+    height:55px;
+
+    background:#fff7d6;
+
+    border-radius:50%;
+
+    box-shadow:
+    inset -5px -5px 0 #ffe9a8,
+    0 5px 10px rgba(0,0,0,0.3);
+}
+
+.p1{top:10px;left:20px;}
+.p2{top:0px;left:70px;}
+.p3{top:15px;left:120px;}
+.p4{top:45px;left:40px;}
+.p5{top:40px;left:95px;}
+.p6{top:55px;left:145px;}
+
+.popcorn-cup{
+    position:absolute;
+
+    bottom:0;
+    left:35px;
+
+    width:150px;
+    height:170px;
+
+    background:white;
+
+    clip-path:
+    polygon(
+        10% 0%,
+        90% 0%,
+        100% 100%,
+        0% 100%
+    );
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.4);
+}
+
+.stripe{
+    position:absolute;
+
+    width:25px;
+    height:100%;
+
+    background:#ff2e63;
+}
+
+.stripe:nth-child(1){left:10px;}
+.stripe:nth-child(2){left:50px;}
+.stripe:nth-child(3){left:90px;}
+.stripe:nth-child(4){left:130px;}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px) rotate(-2deg);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(2deg);
+    }
+
+    100%{
+        transform:translateY(0px) rotate(-2deg);
+    }
+}
+
+/* 🎟️ TICKET */
+.ticket{
+
+    display:flex;
+
+    width:420px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 0 30px rgba(255,46,99,0.2);
+
+    transition:0.4s;
+}
+
+.ticket:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 40px rgba(255,46,99,0.5);
+}
+
+.ticket-left{
+
+    background:#ff2e63;
+
+    padding:30px;
+
+    width:40%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.ticket-right{
+
+    padding:30px;
+
+    flex:1;
+
+    position:relative;
+}
+
+.ticket-right h3{
+    color:#ffb6c1;
+    font-size:28px;
+}
+
+.ticket-right span{
+
+    position:absolute;
+
+    bottom:20px;
+    right:20px;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    color:gray;
 }
 
 /* FOOTER */
 footer{
- padding:20px;
- color:gray;
- text-align:center;
+    padding:30px;
+    text-align:center;
+    color:gray;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🎬 INTRO -->
+<div class="intro">
+    <div class="intro-logo">
+        TEAM LOVE
+    </div>
+</div>
+
+<!-- NAV -->
 <nav>
- <h1>TEAM LOVE</h1>
+
+    <h1>TEAM LOVE</h1>
+
+    <div>
+        <a href="#">소개</a>
+        <a href="#">팀</a>
+        <a href="#">작품</a>
+    </div>
+
 </nav>
 
+<!-- HEADER -->
 <header>
- <h1>🎬 TEAM LOVE STUDIO</h1>
+
+    <h1>
+        🎬 TEAM LOVE STUDIO
+    </h1>
+
 </header>
 
+<!-- ABOUT -->
 <section>
- <h1>Team</h1>
- <div class="card">임휘승 (팀장)</div>
- <div class="card">송시우 (부팀장)</div>
- <div class="card">안종문 / 최에이든</div>
+
+    <h1>About Us</h1>
+
+    <div class="about-box">
+
+        TEAM LOVE는 해운대중학교 1학년 학생들로 이루어진 영화 제작 팀입니다.<br><br>
+
+        우리는 AI 기술을 활용해 감성적인 영화를 제작하며,<br>
+        새로운 방식의 스토리텔링을 연구합니다.
+
+    </div>
+
 </section>
 
+<!-- TEAM -->
+<section>
+
+    <h1>Team</h1>
+
+    <div class="card">
+        <h3>팀장</h3>
+        임휘승
+    </div>
+
+    <div class="card">
+        <h3>부팀장</h3>
+        송시우
+    </div>
+
+    <div class="card">
+        <h3>팀원</h3>
+        안종문<br>
+        최에이든
+    </div>
+
+</section>
+
+<!-- 🎬 CINEMA -->
 <section class="cinema-section">
- <h1>Now Showing</h1>
 
- <div class="screen">
-  <div class="rain"></div>
+    <h1>Now Showing</h1>
 
-  <div class="screen-content">
-   <h2>소나기 - 청순한 사랑</h2>
-   <p>TEAM LOVE의 첫 작품<br>소나기처럼 짧고 깊게 남는 첫사랑 이야기</p>
-  </div>
- </div>
+    <div class="screen">
 
- <div class="seats">
-  <div class="row">
-   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
-   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
-  </div>
-  <div class="row">
-   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
-   <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
-  </div>
- </div>
+        <!-- 🌧️ 비 -->
+        <div class="rain"></div>
+
+        <!-- 🎥 CONTENT -->
+        <div class="screen-content">
+
+            <h2>
+                소나기 - 청순한 사랑
+            </h2>
+
+            <p>
+            TEAM LOVE의 첫 작품<br><br>
+
+            갑작스럽게 내리는 소나기처럼,<br>
+            짧지만 깊게 남는 첫사랑 이야기
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- 🎟️ 좌석 -->
+    <div class="seats">
+
+        <div class="row">
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+        </div>
+
+        <div class="row">
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+        </div>
+
+        <div class="row">
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+            <div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div><div class="seat"></div>
+        </div>
+
+    </div>
+
 </section>
 
+<!-- 🍿🎟️ EXTRA -->
+<section class="extras-section">
+
+    <h1>Cinema Experience</h1>
+
+    <div class="extras-container">
+
+        <!-- 🍿 -->
+        <div class="popcorn-container">
+
+            <div class="popcorn-piece p1"></div>
+            <div class="popcorn-piece p2"></div>
+            <div class="popcorn-piece p3"></div>
+            <div class="popcorn-piece p4"></div>
+            <div class="popcorn-piece p5"></div>
+            <div class="popcorn-piece p6"></div>
+
+            <div class="popcorn-cup">
+                <div class="stripe"></div>
+                <div class="stripe"></div>
+                <div class="stripe"></div>
+                <div class="stripe"></div>
+            </div>
+
+        </div>
+
+        <!-- 🎟️ -->
+        <div class="ticket">
+
+            <div class="ticket-left">
+                <h2>TEAM LOVE</h2>
+                <p>Now Showing</p>
+            </div>
+
+            <div class="ticket-right">
+
+                <h3>소나기</h3>
+
+                <p>청순한 사랑</p>
+
+                <span>
+                    ADMIT ONE
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
 <footer>
- © 2026 TEAM LOVE STUDIO
+    © 2026 TEAM LOVE STUDIO
 </footer>
 
 <script>
-const rain = document.querySelector('.rain');
-for(let i=0;i<120;i++){
- const drop=document.createElement('div');
- drop.classList.add('drop');
- drop.style.left=Math.random()*100+'%';
- drop.style.animationDuration=(0.5+Math.random())+'s';
- rain.appendChild(drop);
+
+/* 🌧️ 비 생성 */
+const rain =
+document.querySelector('.rain');
+
+for(let i=0;i<150;i++){
+
+    const drop =
+    document.createElement('div');
+
+    drop.classList.add('drop');
+
+    drop.style.left =
+    Math.random()*100+'%';
+
+    drop.style.animationDuration =
+    (0.5+Math.random())+'s';
+
+    rain.appendChild(drop);
 }
+
 </script>
 
 </body>
